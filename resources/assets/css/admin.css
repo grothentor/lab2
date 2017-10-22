@@ -1,0 +1,174 @@
+.table .btn {
+	margin-right: 5px;
+}
+.navbar{
+  border-radius: 0;
+}
+
+.dropdown-menu-superuser{
+  left: 0px !important;
+	top: 52px !important;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover{
+	padding-bottom: 20px;
+	background-color: #1a2b3c;
+}
+.dropdown-menu > li > a {
+  text-align: left;
+  font-size: 16px !important;
+  padding: 0 0 15px 0;
+  color: #fff;}
+
+.superuser-header img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.superuser-header{
+	padding: 0;
+	max-height: 100%;
+}
+.table form {
+	margin-bottom: 0;
+}
+
+.actions-col {
+	width: 13%;
+}
+.navbar > .navbar-header {
+	width: 6%;
+	float: left;
+}
+.navbar > .navbar-nav {
+	width: 94%;
+	float: left;
+	font-size: 14px;
+}
+.breadcrumb {
+	width: 100%;
+}
+
+.admin-body > .admin-container {
+	width: 90%;
+	margin: 0 5%;
+}
+
+.admin-body .navbar > .navbar-header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.admin-body .table td {
+	word-wrap: break-word;
+}
+
+.admin-body .table {
+	table-layout:fixed;
+	width: 100%;
+	font-size: 12px;
+}
+
+.admin-body .table form {
+	width: 100%;
+}
+
+.admin-body .table .btn {
+	margin-right: 0;
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+.admin-body .editable-array.ng-isolate-scope {
+	display: inline-block;
+}
+
+.admin-body .editable-array-option .glyphicon {
+	cursor: pointer;
+	padding: 3px;
+	transition: .2s ease all;
+	transform: rotate(0deg);
+}
+
+.admin-body .editable-array span.glyphicon.glyphicon-plus {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+	transform: rotate(0deg);
+	transition: .2s all ease;
+}
+
+.admin-body .editable-array span.glyphicon.glyphicon-plus:hover {
+	transform: rotate(90deg);
+	transition: .2s all ease;
+}
+
+.admin-body .editable-array-option.ng-scope {
+	display: inline-block;
+	margin-right: 10px;
+	float: left;
+	position: relative;
+}
+
+.admin-body .editable-array-option.ng-scope input {
+	width: 100%;
+}
+
+.admin-body .editable-array-option.ng-scope input:not(.ng-hide) + span,
+.admin-body .editable-array-option.ng-scope input:not(.ng-hide) + span + span {
+	position: absolute;
+	top: 7px;
+	right: 0;
+}
+
+.admin-body .editable-array-option.ng-scope input:not(.ng-hide) + span {
+	right: 20px;
+}
+
+@media (min-width: 768px){
+	.navbar-right {
+		margin-right: 0;
+	}
+}
+
+@media (min-width: 1300px ) {
+	.admin-body .editable-array.ng-isolate-scope {
+		width: 250px;
+	}
+}
+
+@media (max-width: 1300px){
+	.table .btn{
+	 	margin-top: 10px;
+   		width: 130px;
+	}
+}
+@media (max-width: 400px){
+	.navbar > .navbar-nav {
+    margin-left: 50px !important;
+	}
+}
+@media (max-width: 768px){
+	.navbar > .navbar-header {
+		width: 25%;
+		float: left;
+	}
+	.navbar > .navbar-nav {
+		width: 55%;
+    margin-left: 30px;
+	}
+	.superuser-header img{
+		max-width: 100%;
+	}
+	.navbar-right{
+		display: none;
+	}
+}
+@media (max-width: 300px){
+	.navbar > .navbar-nav{
+		font-size: 12px;
+	}
+}

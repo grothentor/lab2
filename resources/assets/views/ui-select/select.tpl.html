@@ -1,0 +1,21 @@
+<div class="select ui-select-container dropdown"
+     ng-class="{open: $select.open}"
+     skip-focusser="true">
+    <div class="select-styled" ng-click="$select.activate()">
+        <div class="ui-select-match"></div>
+        <span ng-show="$select.open && $select.refreshing && $select.spinnerEnabled"
+              class="ui-select-refreshing {{$select.spinnerClass}}">
+        </span>
+        <input type="search" autocomplete="off"
+               tabindex="-1" aria-expanded="true"
+               aria-label="{{ $select.baseTitle }}"
+               aria-owns="ui-select-choices-{{ $select.generatedId }}"
+               class="form-control ui-select-search"
+               ng-class="{ 'ui-select-search-hidden' : !$select.searchEnabled }"
+               placeholder="{{$select.placeholder}}"
+               ng-model="$select.search"
+               ng-show="$select.open && $select.searchEnabled">
+    </div>
+    <div class="ui-select-choices"></div>
+    <div class="ui-select-no-choice"></div>
+</div>

@@ -1,0 +1,26 @@
+<?php
+namespace App\Http\Middleware;
+use Closure;
+use Illuminate\Support\Facades\Auth;
+class Authenticate
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string|null  $guard
+     * @return mixed
+     */
+    public function handle($request, Closure $next, $guard = null)
+    {
+        if (auth()->guard($guard)->guest()) {
+            if ($request->ajax() || $request->wantsJson() || 'api' === $guard) {
+                return response()->json(['errors' => [__('messages.error403')]], 403);
+            } else {
+                return redirect()->guest('login');
+            }
+        }
+        return $next($request);
+    }
+}

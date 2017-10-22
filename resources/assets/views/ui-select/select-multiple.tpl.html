@@ -1,0 +1,25 @@
+<div class="select ui-select-container ui-select-multiple dropdown"
+     ng-class="{open: $select.open}"
+     ng-model-options="{ updateOn: 'default' }"
+     skip-focusser="true">
+    <div>
+        <div class="ui-select-match"></div>
+        <div class="select-styled"
+             ng-click="$select.activate()">
+            <input type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                   class="ui-select-search input-xs"
+                   placeholder="{{ $select.selected.length > 1 ?
+                   Lang.get('js-messages.selected', { count: $select.selected.length }):
+                   ($select.selected.length ? $select.selected[0].title : $select.placeholder )}}"
+                   ng-disabled="$select.disabled"
+                   ng-model="$select.search"
+                   role="combobox"
+                   aria-expanded="{{$select.open}}"
+                   aria-label="{{$select.baseTitle}}"
+                   ng-class="{'spinner': $select.refreshing}"
+                   ondrop="return false;">
+        </div>
+    </div>
+    <div class="ui-select-choices"></div>
+    <div class="ui-select-no-choice"></div>
+</div>

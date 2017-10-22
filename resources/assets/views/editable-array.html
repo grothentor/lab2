@@ -1,0 +1,14 @@
+<div class="editable-array">
+    <div class="editable-array-option" ng-repeat="item in editableArray">
+        <span ng-click="editItem(item)" ng-bind="item.title || 'Не указано'" ng-show="!item.editing">
+        </span>
+        <input class="form-control edit-{{ $index }}"
+               ng-model="item.title"
+               ng-show="item.editing"
+               ng-blur="endEditing(item, $event)"
+               ng-keydown="successEditing(item, $event)">
+        <span class="glyphicon-ok-circle glyphicon" ng-show="item.editing" ng-click="successEditing(item)"></span>
+        <span ng-if="deletable" class="glyphicon text-danger glyphicon-remove-circle" ng-click="removeItem(item)"></span>
+    </div>
+    <span ng-if="creatable" ng-click="addItem()" class="glyphicon glyphicon-plus"></span>
+</div>

@@ -1,0 +1,6 @@
+<ul class="select-options ui-select-no-choice dropdown-menu" ng-show="$select.items.length == 0">
+    <div ng-bind="$select.customParams.limit && ($select.search.length < $select.customParams.limit) ?
+        Lang.get('js-messages.minSearchLength', { count: $select.customParams.limit - $select.search.length }) :
+        Lang.get('js-messages.notFoundWithText', { search: $select.search })"></div>
+    <span ng-transclude=""></span>
+</ul>
