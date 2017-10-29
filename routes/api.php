@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'roles:admin'], function () {
+Route::group(['middleware' => 'roles:admin,api'], function () {
     Route::group(['prefix' => '{table}/{entity}', 'where' => ['table' => \App\Services\RealtyParamsService::getEditableTables('|')]], function () {
         Route::patch('/', 'RealtyParamsController@updateEntity');
         Route::delete('/', 'RealtyParamsController@deleteEntity');

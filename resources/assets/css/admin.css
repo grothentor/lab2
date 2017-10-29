@@ -4,6 +4,9 @@
 .navbar{
   border-radius: 0;
 }
+.login input {
+	margin-bottom: 10px;
+}
 
 .dropdown-menu-superuser{
   left: 0px !important;
@@ -35,11 +38,11 @@
 	width: 13%;
 }
 .navbar > .navbar-header {
-	width: 6%;
+	width: 10%;
 	float: left;
 }
 .navbar > .navbar-nav {
-	width: 94%;
+	width: 88%;
 	float: left;
 	font-size: 14px;
 }

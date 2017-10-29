@@ -89,7 +89,7 @@ class User extends Authenticatable
     }
 
     public function forJs() {
-        $fields = ['id', 'email', 'name', 'role'];
+        $fields = ['id', 'email', 'name', 'role', 'api_token'];
         $user = [];
         foreach ($fields as $field)
             $user[$field] = $this->$field;

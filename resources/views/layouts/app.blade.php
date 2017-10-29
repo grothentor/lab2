@@ -22,6 +22,7 @@
         <script>
             window.Laravel = {!! json_encode([
                 'csrfToken' => csrf_token(),
+                'user' => auth()->user() ? auth()->user()->forJs() : null,
             ]) !!};
         </script>
         @yield('js-localization.head')

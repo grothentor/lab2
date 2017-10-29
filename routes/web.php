@@ -11,9 +11,11 @@
 |
 */
 
-use Illuminate\Support\Facades\Auth;
 $this->get('logout', 'Auth\LoginController@logout');
 $this->get('/', function () {
     return redirect(route('login'));
 });
-Auth::routes();
+$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+$this->post('login', 'Auth\LoginController@login');
+$this->get('logout', 'Auth\LoginController@logout');
+$this->post('logout', 'Auth\LoginController@logout')->name('logout');

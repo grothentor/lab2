@@ -12,19 +12,21 @@
             };
 
             $scope.removeRealtyParam = (tableName, id) => {
-                $http.delete(`/api/${tableName}/${id}`).then((response) => {
-                    alert(response.data.success);
-                    angular.element(`.row-${tableName}-${id}`).remove();
-                }, $window.errorsHandler);
+                $http.delete(`/api/${tableName}/${id}?api_token=${$window.Laravel.user.api_token}`)
+                    .then((response) => {
+                        alert(response.data.success);
+                        angular.element(`.row-${tableName}-${id}`).remove();
+                    }, $window.errorsHandler);
             };
 
             $scope.changeYrlType = (tableName, realtyTypeId) => {
                 let data = {
-                    yrl_realty_type_id: $scope.realtyTypes[`${tableName}_${realtyTypeId}`]
+                    yrl_realty_type_id: $scope.realtyTypes[`${tableName}_${realtyTypeId}`],
                 };
-                $http.patch(`/api/${tableName}/${realtyTypeId}`, data).then((response) => {
-                    //alert('saved');
-                }, $window.errorsHandler);
+                $http.patch(`/api/${tableName}/${realtyTypeId}?api_token=${$window.Laravel.user.api_token}`, data)
+                    .then((response) => {
+                        //alert('saved');
+                    }, $window.errorsHandler);
             };
         }]);
 })();

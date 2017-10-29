@@ -19,7 +19,7 @@ class RealtyParamsController extends Controller
         $entity = $table::query()->where('id', $entity)->firstOrFail();
         $this->validate($request, ['title' => "required|max:100|unique:$tableName,title"]);
 
-        $alternative = $request->all();
+        $alternative = $request->request->all();
         $alternative[$table::getAlternativeKey()] = $entity->id;
 
         $alternative = $table::query()->create($alternative);
@@ -34,7 +34,7 @@ class RealtyParamsController extends Controller
         $table::query()->where('id', $entity)->firstOrFail();
         $alternative = $table::getAlternative($alternative);
         $this->validate($request, ['title' => "required|max:100|unique:$tableName,title"]);
-        $alternative->update($request->all());
+        $alternative->update($request->request->all());
         return [
             'success' => __('messages.update', ['entity' => __('alternative'), 'title' => $alternative->title]),
             'entity' => $alternative->getOriginal(),
@@ -55,7 +55,7 @@ class RealtyParamsController extends Controller
         $entity = $table::query()->where('id', $entity)->firstOrFail();
 
         $this->validate($request, ['title' => "max:100|unique:$tableName,title"]);
-        $entity->update($request->all());
+        $entity->update($request->request->all());
         return [
             'success' => __('messages.update', ['entity' => generateForeignKey($tableName, true), 'title' => $entity->title]),
             'entity' => $entity->getOriginal(),

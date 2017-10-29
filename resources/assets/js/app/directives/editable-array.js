@@ -53,9 +53,11 @@
                             let data = { };
                             data[$scope.getTitleAttribute()] = item.title;
                             if (item.id) {
-                                $http.patch(`${$scope.url}/${item.id}`, data).then(response => saveResponse(response, item), $window.errorsHandler);
+                                $http.patch(`${$scope.url}/${item.id}?api_token=${$window.Laravel.user.api_token}`, data)
+                                    .then(response => saveResponse(response, item), $window.errorsHandler);
                             } else {
-                                $http.post($scope.url, data).then(response => saveResponse(response, item), $window.errorsHandler);
+                                $http.post(`${$scope.url}?api_token=${$window.Laravel.user.api_token}`, data)
+                                    .then(response => saveResponse(response, item), $window.errorsHandler);
                             }
                         } else {
                             $window.alert(Lang.get('js-messages.tooShort'));
@@ -70,7 +72,8 @@
                 $scope.removeItem = (item) => {
                     endAllEditing();
                     if (item.id) {
-                        $http.delete(`${$scope.url}/${item.id}`).then(response => deleteItem(item), $window.errorsHandler);
+                        $http.delete(`${$scope.url}/${item.id}?api_token=${$window.Laravel.user.api_token}`)
+                            .then(response => deleteItem(item), $window.errorsHandler);
                     } else {
                         deleteItem(item);
                     }
